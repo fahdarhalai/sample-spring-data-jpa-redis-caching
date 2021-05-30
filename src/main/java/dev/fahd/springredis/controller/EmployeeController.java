@@ -34,6 +34,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
+    @CacheEvict(key = "#id", value = "EMPLOYEE")
     public EmployeeDTO update(@PathVariable("id") Long id, @RequestBody EmployeeDTO employeeDTO){
         return employeeService.update(id, employeeDTO);
     }
